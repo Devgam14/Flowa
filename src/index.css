@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Goodly";
+  src: url("./assets/fonts/goodly-extralight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Goodly";
+  src: url("./assets/fonts/goodly-light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Goodly";
+  src: url("./assets/fonts/goodly-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Goodly";
+  src: url("./assets/fonts/goodly-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Goodly";
+  src: url("./assets/fonts/goodly-semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Goodly";
+  src: url("./assets/fonts/goodly-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
