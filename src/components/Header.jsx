@@ -37,14 +37,17 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className="w-1/2 flex flex-col ">
-          <header className="py-20 px-2 ">
+        <div className="w-1/2 flex flex-col items-center justify-center h-screen ">
+          <header className="py-20 px-2 flex flex-col items-center ">
             <h1 className="text-4xl font-goodly text-white">
               Bussiness made simple with{" "}
               <span className="bg-[#C7D59F] px-2 rounded-md text-[#40531A]">
                 Flowa
               </span>
             </h1>
+            <button className="w-fit p-2 mt-2 bg-secondary border-primary text-primary border-2 ">
+              Register now
+            </button>
           </header>
         </div>
       </div>
