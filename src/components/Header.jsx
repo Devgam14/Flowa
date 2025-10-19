@@ -5,7 +5,6 @@ import { useRef } from "react";
 // The image imports are kept but not used in the final hero for a clean, centered look
 const Header = () => {
   const boxref = useRef(null);
-  let matchMedia = gsap.matchMedia();
   useEffect(() => {
     console.log(boxref.current);
     if (boxref.current) {
@@ -18,8 +17,8 @@ const Header = () => {
           duration: 2,
           scale: 1,
           ease: "sine.out",
-          fontSize: "3rem",
-          lineHeight: "2.5rem",
+          fontSize: "3.5rem",
+          lineHeight: "2.8rem",
         }
       );
     }
@@ -30,13 +29,14 @@ const Header = () => {
         to respect the request: "dont add anything on the nav bar only the pattern"
         The original pattern has the logo and a button.
       */}
+      |lkjb
       <nav
         className="w-full flex flex-row justify-between py-2 fixed top-0 left-0 items-center lg:h-16 md:py-4 bg-secondary 
       backdrop-blur-lg border-b-2 border-primary z-10 lg:w-[90%] lg:ml-[5%]"
       >
-        <div className="text-2xl lg:text-5xl font-goodly flex justify-center items-center w-fit px-5 py-2 ml-5">
+        <div className="text-2xl lg:text-4xl font-goodly flex justify-center items-center w-fit px-5 py-2 ml-5">
           <span className="text-primary">Flo</span>
-          <span className="text-secondary bg-primary px-1 ml-1 rounded-md text-3xl lg:text-5xl">
+          <span className="text-secondary bg-primary px-1 ml-1 rounded-md text-3xl lg:text-4xl">
             wa
           </span>
         </div>
@@ -44,7 +44,6 @@ const Header = () => {
           Secure Your Spot
         </button>
       </nav>
-
       {/* Hero Section: Centered content based on the Supabase screenshot. 
         It spans the whole screen, centers its content, and uses large, 
         contrasting text.
