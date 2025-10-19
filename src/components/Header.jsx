@@ -5,37 +5,45 @@ import { useRef } from "react";
 // The image imports are kept but not used in the final hero for a clean, centered look
 const Header = () => {
   const boxref = useRef(null);
+  let matchMedia = gsap.matchMedia();
   useEffect(() => {
     console.log(boxref.current);
     if (boxref.current) {
       gsap.fromTo(
         boxref.current,
-        { y: -30, x: 5 },
+        { y: -10, x: 10, scale: -1, fontSize: "0.5rem", lineHeight: "0.5rem" },
         {
           y: 0,
           x: 0,
           duration: 2,
+          scale: 1,
+          ease: "sine.out",
+          fontSize: "3rem",
+          lineHeight: "2.5rem",
         }
       );
     }
   }, []);
   return (
-    <div className="h-screen w-full bg-secondary">
+    <div className="h-screen  w-full bg-secondary">
       {/* The NavBar: Keeping the original structure but removing extra fluff
         to respect the request: "dont add anything on the nav bar only the pattern"
         The original pattern has the logo and a button.
       */}
-      <div className="w-full flex flex-row justify-between py-2 fixed top-0 left-0 items-center lg:h-16 md:py-4 bg-secondary backdrop-blur-lg border-b-2 border-primary z-10">
+      <nav
+        className="w-full flex flex-row justify-between py-2 fixed top-0 left-0 items-center lg:h-16 md:py-4 bg-secondary 
+      backdrop-blur-lg border-b-2 border-primary z-10 lg:w-[90%] lg:ml-[5%]"
+      >
         <div className="text-2xl lg:text-5xl font-goodly flex justify-center items-center w-fit px-5 py-2 ml-5">
           <span className="text-primary">Flo</span>
           <span className="text-secondary bg-primary px-1 ml-1 rounded-md text-3xl lg:text-5xl">
             wa
           </span>
         </div>
-        <button className="bg-primary text-secondary font-goodly rounded-xl mr-5 text-lg lg:text-xl h-10 lg:h-11 px-3 lg:px-4 transition duration-300 hover:opacity-80 shadow-md shadow-secondary">
+        <button className="bg-primary text-secondary font-goodly rounded-xl mr-5 text-lg lg:text-l h-10 lg:h-11 px-3 lg:px-3 transition duration-300 hover:opacity-80 shadow-md shadow-secondary">
           Secure Your Spot
         </button>
-      </div>
+      </nav>
 
       {/* Hero Section: Centered content based on the Supabase screenshot. 
         It spans the whole screen, centers its content, and uses large, 
