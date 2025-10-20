@@ -29,7 +29,6 @@ const Header = () => {
         to respect the request: "dont add anything on the nav bar only the pattern"
         The original pattern has the logo and a button.
       */}
-      |lkjb
       <nav
         className="w-full flex flex-row justify-between py-2 fixed top-0 left-0 items-center lg:h-16 md:py-4 bg-secondary 
       backdrop-blur-lg border-b-2 border-primary z-10 lg:w-[90%] lg:ml-[5%]"
@@ -40,7 +39,15 @@ const Header = () => {
             wa
           </span>
         </div>
-        <button className="bg-primary text-secondary font-goodly rounded-xl mr-5 text-lg lg:text-l h-10 lg:h-11 px-3 lg:px-3 transition duration-300 hover:opacity-80 shadow-md shadow-secondary">
+        <button
+          className="bg-primary text-secondary font-goodly rounded-xl mr-5 text-lg lg:text-l h-10 lg:h-11 px-3 lg:px-3 transition duration-300 hover:opacity-80 shadow-md shadow-secondary"
+          onClick={() => {
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: "smooth",
+            });
+          }}
+        >
           Secure Your Spot
         </button>
       </nav>
@@ -62,27 +69,31 @@ const Header = () => {
 
         {/* Sub-Description */}
         <p className="lg:text-[1.1rem] text-2xl md:text-2xl text-gray-300 max-w-2xl mt-6 sm:mt-8  leading-relaxed font-goodly">
-          Flowa is where business meets precision. We turn complex
-          administrative systems into seamless digital flows that move with
-          clarity and purpose. Every process becomes smarter, every decision
-          sharper, and growth feels natural. With Flowa, transformation isn’t
-          disruption — it’s progress refined.
+          Your WhatsApp. Your Data. Finally Clear. <br /> Flowa turns your
+          business chats into insights, summaries, and smart records —<br /> so
+          you can focus on growth, not scrolling.
         </p>
 
         {/* Action Buttons Container */}
         <div className="flex flex-row space-x-4 mt-8  items-center">
-          <button className="bg-primary text-secondary font-medium rounded-lg text-lg px-6  font-goodly py-3 transition duration-300 transform hover:scale-[1.03] shadow-md shadow-secondary ">
+          <button
+            className="bg-primary text-secondary font-medium rounded-lg text-lg px-6  font-goodly py-3 transition duration-300 transform hover:scale-[1.03] shadow-md shadow-secondary "
+            onClick={() => {
+              window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth",
+              });
+            }}
+          >
             Join the waitlist
           </button>
         </div>
 
         {/* Logos/Trust Section - Simulating the bottom part of the screenshot */}
-        <div className="absolute bottom-0 w-full flex justify-center  py-6 lg:py-6 border-t border-secondary">
-          <p className="text-sm text-gray-600 space-x-6">
-            <span>Client A</span>
-            <span>Client B</span>
-            <span>Client C</span>
-            <span>Client D</span>
+        <div className="absolute bottom-0 w-full flex justify-center h-[15%]  lg:py-6 border-t border-secondary">
+          <p className="font-medium text-xl px-3  lg:text-[0.9rem] tracking-normal text-primary space-x-6">
+            Built for modern entrepreneurs who run their business through chat —
+            and flow smarter with Flowa
           </p>
         </div>
       </div>
