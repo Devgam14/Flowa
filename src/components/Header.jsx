@@ -90,7 +90,7 @@ const Header = () => {
         </div>
 
         {/* Logos/Trust Section - Simulating the bottom part of the screenshot */}
-        <div className="absolute bottom-0 w-full flex justify-center h-[15%]  lg:py-6 border-t border-secondary">
+        <div className="absolute bottom-0 w-full flex justify-center h-[30%]  lg:py-6 border-t border-secondary">
           <p className="font-medium text-xl px-3  lg:text-[0.9rem] tracking-normal text-primary space-x-6">
             Built for modern entrepreneurs who run their business through chat —
             and flow smarter with Flowa
