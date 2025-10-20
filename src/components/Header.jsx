@@ -25,7 +25,7 @@ const Header = () => {
             x: 0,
             scale: 1,
             fontSize: "2.8rem",
-            lineHeight: "2.8rem",
+            lineHeight: "2.3rem",
             duration: 2,
             ease: "sine.out",
           }
@@ -91,7 +91,7 @@ const Header = () => {
           </span>
         </div>
         <button
-          className="bg-primary text-secondary font-goodly rounded-xl mr-5 text-lg lg:text-l h-10 lg:h-11 px-3 lg:px-3 transition duration-300 hover:opacity-80 shadow-md shadow-secondary hidden "
+          className="bg-primary text-secondary font-goodly rounded-xl mr-5 text-lg lg:text-l h-10 lg:h-11 px-3 lg:px-3 transition duration-300 hover:opacity-80 shadow-md shadow-secondary hidden lg:block "
           onClick={() => {
             window.scrollTo({
               top: document.body.scrollHeight,
@@ -124,7 +124,7 @@ const Header = () => {
         <p
           // FIX 1: Simplified mobile text size from text-2xl to text-lg/xl
           // FIX 2: Removed manual <br /> tags for better fluidity on all screen sizes
-          className="text-lg lg:text-[1.1rem] text-gray-300 font-goodly mt-2"
+          className="text-lg lg:text-[1.1rem] text-gray-300 max-w-2xl  font-goodly "
         >
           Your WhatsApp. Your Data. Finally Clear. Flowa turns your business
           chats into insights, summaries, and smart records — so you can focus
