@@ -106,7 +106,7 @@ const Header = () => {
         It spans the whole screen, centers its content, and uses large, 
         contrasting text.
       */}
-      <div className="w-full h-full flex flex-col items-center justify-center text-center px-4 pt-16">
+      <div className="w-full h-full flex flex-col items-center justify-center text-center px-4 pt-16 gap-3">
         {/* Main Heading */}
         <h1
           className="text-4xl sm:text-6xl md:text-7xl lg:text-5xl font-medium font-goodly text-accent  mt-[8vh] lg:mt-[-10vh]"
@@ -126,7 +126,7 @@ const Header = () => {
         </p>
 
         {/* Action Buttons Container */}
-        <div className="flex flex-row space-x-4 mt-8  items-center mb-30">
+        <div className="flex flex-row space-x-4 mt-8  items-center mb-">
           <button
             className="bg-primary text-secondary font-medium rounded-lg text-lg px-6  font-goodly py-3 transition duration-300 transform hover:scale-[1.03] shadow-md shadow-secondary mb-4 lg:mb-0 md:mb-0"
             onClick={() => {
@@ -142,7 +142,7 @@ const Header = () => {
 
         {/* Logos/Trust Section - Simulating the bottom part of the screenshot */}
         <div className="absolute bottom-0 w-full flex justify-center py-6 lg:py-6 border-t border-secondary">
-          <p className="font-medium text-xl px-3 pt-6 lg:text-[0.9rem] tracking-normal text-primary space-x-6">
+          <p className="font-medium text-xl px-3  lg:text-[0.9rem] tracking-normal text-primary space-x-6">
             Built for modern entrepreneurs who run their business through chat —
             and flow smarter with Flowa
           </p>
