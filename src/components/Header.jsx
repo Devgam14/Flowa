@@ -106,7 +106,7 @@ const Header = () => {
         It spans the whole screen, centers its content, and uses large, 
         contrasting text.
       */}
-      <div className="w-full h-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-20 gap-8">
+      <div className="w-full h-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-20 gap-4">
         {/* Main Heading Container (Used to house animation elements) */}
         <div
           className="text-4xl sm:text-6xl md:text-7xl lg:text-5xl font-medium font-goodly text-accent overflow-hidden"
