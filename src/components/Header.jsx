@@ -84,7 +84,7 @@ const Header = () => {
         className="w-full flex flex-row lg:justify-between justify-center py-2 fixed top-0 left-0 items-center lg:h-16  h-12  md:py-4 bg-secondary  
       backdrop-blur-lg border-b-2 border-primary z-10 lg:w-[90%] lg:ml-[5%]"
       >
-        <div className="text-3xl lg:text-4xl font-goodly flex justify-center items-center w-fit px-5 py-2 ml-5">
+        <div className="md:text-3xl  text-xl  lg:text-4xl font-goodly flex justify-center items-center w-fit px-5 py-2 ml-5">
           <span className="text-primary">Flo</span>
           <span className="text-secondary bg-primary px-1 ml-1 rounded-md text-3xl lg:text-4xl">
             wa
