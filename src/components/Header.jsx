@@ -128,7 +128,7 @@ const Header = () => {
         {/* Action Buttons Container */}
         <div className="flex flex-row space-x-4 mt-8  items-center">
           <button
-            className="bg-primary text-secondary font-medium rounded-lg text-lg px-6  font-goodly py-3 transition duration-300 transform hover:scale-[1.03] shadow-md shadow-secondary "
+            className="bg-primary text-secondary font-medium rounded-lg text-lg px-6  font-goodly py-3 transition duration-300 transform hover:scale-[1.03] shadow-md shadow-secondary mb-4 lg:mb-0 md:mb-0"
             onClick={() => {
               window.scrollTo({
                 top: document.body.scrollHeight,
@@ -141,7 +141,7 @@ const Header = () => {
         </div>
 
         {/* Logos/Trust Section - Simulating the bottom part of the screenshot */}
-        <div className="absolute bottom-0 w-full flex justify-center py-3 lg:py-6 border-t border-secondary">
+        <div className="absolute bottom-0 w-full flex justify-center py-6 lg:py-6 border-t border-secondary">
           <p className="font-medium text-xl px-3  lg:text-[0.9rem] tracking-normal text-primary space-x-6">
             Built for modern entrepreneurs who run their business through chat —
             and flow smarter with Flowa
