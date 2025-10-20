@@ -81,7 +81,7 @@ const Header = () => {
         The original pattern has the logo and a button.
       */}
       <nav
-        className="w-full flex flex-row lg:justify-between justify-center py-2 fixed top-0 left-0 items-center lg:h-16 md:py-4 bg-secondary  
+        className="w-full flex flex-row lg:justify-between justify-center py-2 fixed top-0 left-0 items-center lg:h-16  h-12  md:py-4 bg-secondary  
       backdrop-blur-lg border-b-2 border-primary z-10 lg:w-[90%] lg:ml-[5%]"
       >
         <div className="text-3xl lg:text-4xl font-goodly flex justify-center items-center w-fit px-5 py-2 ml-5">
@@ -124,7 +124,7 @@ const Header = () => {
         <p
           // FIX 1: Simplified mobile text size from text-2xl to text-lg/xl
           // FIX 2: Removed manual <br /> tags for better fluidity on all screen sizes
-          className="text-xl lg:text-[1.1rem] text-gray-300 max-w-2xl leading-relaxed font-goodly mt-2"
+          className="text-l lg:text-[1.1rem] text-gray-300 max-w-2xl leading-relaxed font-goodly mt-2"
         >
           Your WhatsApp. Your Data. Finally Clear. Flowa turns your business
           chats into insights, summaries, and smart records — so you can focus
