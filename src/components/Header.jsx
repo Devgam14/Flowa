@@ -106,29 +106,36 @@ const Header = () => {
         It spans the whole screen, centers its content, and uses large, 
         contrasting text.
       */}
-      <div className="w-full h-full flex flex-col items-center justify-center text-center px-4 pt-16 gap-3">
-        {/* Main Heading */}
-        <h1
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-5xl font-medium font-goodly text-accent  mt-[8vh] lg:mt-[-10vh]"
+      <div className="w-full h-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-20 gap-8">
+        {/* Main Heading Container (Used to house animation elements) */}
+        <div
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-5xl font-medium font-goodly text-accent overflow-hidden"
           ref={boxref}
         >
-          {/* 'Build in a weekend' style */}
-          Business made simple with
-          {/* 'Scale to millions' style with the green highlight */}
-          <span className="block text-primary mt-2 sm:mt-4">Flowa</span>
-        </h1>
+          {/* Heading Line 1 */}
+          <h1 className="leading-tight">Business made simple with</h1>
+          {/* Heading Line 2 (The primary text element) */}
+          <h1 className="leading-tight">
+            <span className="block text-primary mt-2 sm:mt-4">Flowa</span>
+          </h1>
+        </div>
 
         {/* Sub-Description */}
-        <p className="lg:text-[1.1rem] text-2xl md:text-2xl text-gray-300 max-w-2xl mt-6 sm:mt-8  leading-relaxed font-goodly">
-          Your WhatsApp. Your Data. Finally Clear. <br /> Flowa turns your
-          business chats into insights, summaries, and smart records —<br /> so
-          you can focus on growth, not scrolling.
+        <p
+          // FIX 1: Simplified mobile text size from text-2xl to text-lg/xl
+          // FIX 2: Removed manual <br /> tags for better fluidity on all screen sizes
+          className="text-xl lg:text-[1.1rem] text-gray-300 max-w-2xl leading-relaxed font-goodly mt-2"
+        >
+          Your WhatsApp. Your Data. Finally Clear. Flowa turns your business
+          chats into insights, summaries, and smart records — so you can focus
+          on growth, not scrolling.
         </p>
 
         {/* Action Buttons Container */}
-        <div className="flex flex-row space-x-4 mt-8  items-center mb-">
+        <div className="flex flex-row space-x-4 items-center mt-4">
           <button
-            className="bg-primary text-secondary font-medium rounded-lg text-lg px-6  font-goodly py-3 transition duration-300 transform hover:scale-[1.03] shadow-md shadow-secondary mb-4 lg:mb-0 md:mb-0"
+            // FIX 3: Removed conflicting bottom margins (mb-4 lg:mb-0 md:mb-0)
+            className="bg-primary text-secondary font-medium rounded-lg text-lg px-6 font-goodly py-3 transition duration-300 transform hover:scale-[1.03] shadow-md shadow-secondary"
             onClick={() => {
               window.scrollTo({
                 top: document.body.scrollHeight,
@@ -140,8 +147,17 @@ const Header = () => {
           </button>
         </div>
 
-        <div className=" w-full flex justify-center py-6 lg:py-6 border-t border-secondary">
-          <p className="font-medium text-xl px-3  lg:text-[0.9rem] tracking-normal text-primary space-x-6">
+        {/* Footer/Trust Section - Now aligned naturally with Flexbox */}
+        <div
+          // FIX 4: Removed mt-[45%] and absolute/fixed positioning.
+          // Now positioned at the bottom by the flex container's natural flow (or gap).
+          // ADDED: pt-8 to create necessary separation from the button.
+          className="w-full flex justify-center border-t border-secondary pt-8"
+        >
+          <p
+            // FIX 5: Simplified font size
+            className="font-medium text-sm sm:text-base px-3 tracking-normal text-primary text-center max-w-4xl"
+          >
             Built for modern entrepreneurs who run their business through chat —
             and flow smarter with Flowa
           </p>
