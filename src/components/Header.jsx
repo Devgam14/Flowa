@@ -124,7 +124,7 @@ const Header = () => {
         <p
           // FIX 1: Simplified mobile text size from text-2xl to text-lg/xl
           // FIX 2: Removed manual <br /> tags for better fluidity on all screen sizes
-          className="text-[1rem] lg:text-[1.1rem] text-gray-300 max-w-2xl  font-goodly mt-2"
+          className="text-[0.8rem] lg:text-[1.1rem] text-gray-300 max-w-2xl  font-goodly mt-2"
         >
           Your WhatsApp. Your Data. Finally Clear. Flowa turns your business
           chats into insights, summaries, and smart records — so you can focus
