@@ -129,7 +129,7 @@ const ComingSoon = () => {
     <section className="flex flex-col items-center justify-center min-h-screen bg-[#1b211c] text-accent text-center px-4">
       {/* ... H1 and P tags remain the same ... */}
       <h1
-        className="text-4xl md:text-6xl font-medium mb-4 font-goodly"
+        className="text-4xl md:text-5xl font-medium mb-4 font-goodly"
         ref={textElement}
       >
         Flowa is almost here

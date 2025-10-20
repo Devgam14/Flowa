@@ -6,22 +6,73 @@ import { useRef } from "react";
 const Header = () => {
   const boxref = useRef(null);
   useEffect(() => {
-    console.log(boxref.current);
-    if (boxref.current) {
-      gsap.fromTo(
-        boxref.current,
-        { y: -10, x: 10, scale: -1, fontSize: "0.5rem", lineHeight: "0.5rem" },
-        {
-          y: 0,
-          x: 0,
-          duration: 2,
-          scale: 1,
-          ease: "sine.out",
-          fontSize: "3.5rem",
-          lineHeight: "2.8rem",
+    let mm = gsap.matchMedia();
+
+    // MatchMedia handles responsive animations
+    mm.add("(min-width: 768px)", () => {
+      if (boxref.current) {
+        gsap.fromTo(
+          boxref.current,
+          {
+            y: -10,
+            x: 10,
+            scale: -1,
+            fontSize: "0.5rem",
+            lineHeight: "0.5rem",
+          },
+          {
+            y: 0,
+            x: 0,
+            scale: 1,
+            fontSize: "2.8rem",
+            lineHeight: "2.8rem",
+            duration: 2,
+            ease: "sine.out",
+          }
+        );
+      }
+
+      // Cleanup if media query stops matching
+      return () => {
+        if (boxref.current) {
+          gsap.set(boxref.current, { clearProps: "all" });
         }
-      );
-    }
+      };
+    });
+
+    // Optional: animations for smaller screens
+    mm.add("(max-width: 767px)", () => {
+      if (boxref.current) {
+        gsap.fromTo(
+          boxref.current,
+          {
+            y: -10,
+            x: 10,
+            scale: -1,
+            fontSize: "0.5rem",
+            lineHeight: "0.5rem",
+          },
+          {
+            y: 0,
+            x: 0,
+            scale: 1,
+            fontSize: "2.2rem",
+            lineHeight: "2rem",
+            duration: 2,
+            ease: "sine.out",
+          }
+        );
+      }
+
+      return () => {
+        if (boxref.current) {
+          gsap.set(boxref.current, { clearProps: "all" });
+        }
+      };
+    });
+
+    // Cleanup MatchMedia on component unmount
+    return () => mm.revert();
   }, []);
   return (
     <div className="h-screen  w-full bg-secondary">
@@ -30,17 +81,17 @@ const Header = () => {
         The original pattern has the logo and a button.
       */}
       <nav
-        className="w-full flex flex-row justify-between py-2 fixed top-0 left-0 items-center lg:h-16 md:py-4 bg-secondary 
+        className="w-full flex flex-row lg:justify-between justify-center py-2 fixed top-0 left-0 items-center lg:h-16 md:py-4 bg-secondary  
       backdrop-blur-lg border-b-2 border-primary z-10 lg:w-[90%] lg:ml-[5%]"
       >
-        <div className="text-2xl lg:text-4xl font-goodly flex justify-center items-center w-fit px-5 py-2 ml-5">
+        <div className="text-3xl lg:text-4xl font-goodly flex justify-center items-center w-fit px-5 py-2 ml-5">
           <span className="text-primary">Flo</span>
           <span className="text-secondary bg-primary px-1 ml-1 rounded-md text-3xl lg:text-4xl">
             wa
           </span>
         </div>
         <button
-          className="bg-primary text-secondary font-goodly rounded-xl mr-5 text-lg lg:text-l h-10 lg:h-11 px-3 lg:px-3 transition duration-300 hover:opacity-80 shadow-md shadow-secondary"
+          className="bg-primary text-secondary font-goodly rounded-xl mr-5 text-lg lg:text-l h-10 lg:h-11 px-3 lg:px-3 transition duration-300 hover:opacity-80 shadow-md shadow-secondary hidden "
           onClick={() => {
             window.scrollTo({
               top: document.body.scrollHeight,
@@ -90,7 +141,7 @@ const Header = () => {
         </div>
 
         {/* Logos/Trust Section - Simulating the bottom part of the screenshot */}
-        <div className="absolute bottom-0 w-full flex justify-center h-[30%]  lg:py-6 border-t border-secondary">
+        <div className="absolute bottom-0 w-full flex justify-center py-3 lg:py-6 border-t border-secondary">
           <p className="font-medium text-xl px-3  lg:text-[0.9rem] tracking-normal text-primary space-x-6">
             Built for modern entrepreneurs who run their business through chat —
             and flow smarter with Flowa
