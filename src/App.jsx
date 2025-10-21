@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   return (
-    <> 
+    <>
       <div className="w-full overflow-x-hidden min-h-screen">
         <Header />
         <ComingSoon />

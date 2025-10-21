@@ -119,7 +119,7 @@ const ComingSoon = () => {
       console.error("Error inserting data:", supabaseError.message);
       setError("Subscription failed. Please try again.");
     } else {
-      console.log("Success! Data inserted:", data);
+      console.log("Success! Data inserted:");
       setFormdata({ name: "", email: "" });
       setSubmitted(true);
     }
