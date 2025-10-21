@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ComingSoon = () => {
   const [timeLeft, setTimeLeft] = useState({});
-  // Set initial loading state to FALSE since the component is ready
   const [loading, setLoading] = useState(false);
   const [formdata, setFormdata] = useState({
     name: "",
@@ -16,8 +15,8 @@ const ComingSoon = () => {
 
   const textElement = useRef(null);
   const enterbutton = useRef(null);
-  const launchDate = new Date(2025, 10, 30).getTime();
 
+  // Handle input changes
   const handleInputChange = (e) => {
     setFormdata({
       ...formdata,
@@ -27,7 +26,8 @@ const ComingSoon = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    // ... GSAP and Countdown logic remains the same ...
+
+    // === TEXT ANIMATION ===
     const textelement = textElement.current;
     if (textelement) {
       const textarray = textelement.textContent.split("");
@@ -54,6 +54,7 @@ const ComingSoon = () => {
       );
     }
 
+    // === BUTTON ANIMATION ===
     const submitButton = enterbutton.current;
     if (submitButton) {
       gsap.fromTo(
@@ -73,9 +74,13 @@ const ComingSoon = () => {
       );
     }
 
+    // === COUNTDOWN LOGIC (3 weeks from today) ===
+    const launchDate = new Date();
+    launchDate.setDate(launchDate.getDate() + 21); // 21 days = 3 weeks
+
     const timer = setInterval(() => {
       const now = new Date().getTime();
-      const distance = launchDate - now;
+      const distance = launchDate.getTime() - now;
 
       if (distance <= 0) {
         clearInterval(timer);
@@ -94,8 +99,9 @@ const ComingSoon = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [launchDate]);
+  }, []);
 
+  // === HANDLE WAITLIST SUBMISSION ===
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -105,29 +111,27 @@ const ComingSoon = () => {
       return;
     }
 
-    // FIX 1: Set loading state to TRUE before the async operation
     setLoading(true);
 
-    const { data, error: supabaseError } = await supabase
+    const { error: supabaseError } = await supabase
       .from("waitlist")
       .insert([{ name: formdata.name, email: formdata.email }]);
 
-    // FIX 2: Set loading state to FALSE in ALL exit paths
     setLoading(false);
 
     if (supabaseError) {
       console.error("Error inserting data:", supabaseError.message);
       setError("Subscription failed. Please try again.");
     } else {
-      console.log("Success! Data inserted:", data);
+      console.log("Success! Data inserted:");
       setFormdata({ name: "", email: "" });
       setSubmitted(true);
     }
   };
 
+  // === RENDER ===
   return (
     <section className="flex flex-col items-center justify-center min-h-screen bg-[#1b211c] text-accent text-center px-4">
-      {/* ... H1 and P tags remain the same ... */}
       <h1
         className="text-4xl md:text-5xl font-medium mb-4 font-goodly"
         ref={textElement}
@@ -155,7 +159,7 @@ const ComingSoon = () => {
         </div>
       )}
 
-      {/* Error Message Display */}
+      {/* Error Message */}
       {error && <p className="text-red-500 mb-4 font-medium">{error}</p>}
 
       {/* Waitlist Form */}
@@ -170,9 +174,9 @@ const ComingSoon = () => {
             required
             value={formdata.name}
             onChange={handleInputChange}
-            placeholder="Pls enter your name"
+            placeholder="Please enter your name"
             className="px-4 py-2 rounded-md w-72 sm:w-80 outline-none bg-[#2b352d] text-[#e3f2da] focus:ring-2 focus:ring-green-500"
-            disabled={loading} // IMPROVEMENT: Disable inputs while loading
+            disabled={loading}
           />
           <input
             type="email"
@@ -182,17 +186,15 @@ const ComingSoon = () => {
             onChange={handleInputChange}
             placeholder="Enter your email"
             className="px-4 py-2 rounded-md w-72 sm:w-80 outline-none bg-[#2b352d] text-[#e3f2da] focus:ring-2 focus:ring-green-500"
-            disabled={loading} // IMPROVEMENT: Disable inputs while loading
+            disabled={loading}
           />
           <button
             type="submit"
             ref={enterbutton}
-            className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full transition-all disabled:opacity-50" // IMPROVEMENT: Styling for disabled button
-            disabled={loading} // IMPROVEMENT: Disable button while loading
-            // REMOVED: The flawed onClick handler
+            className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full transition-all disabled:opacity-50"
+            disabled={loading}
           >
             {loading ? "Submitting..." : "Join Waitlist"}
-            {/* IMPROVEMENT: Dynamically set button text using ternary operator */}
           </button>
         </form>
       ) : (
