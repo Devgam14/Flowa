@@ -108,7 +108,7 @@ const ComingSoon = () => {
     // FIX 1: Set loading state to TRUE before the async operation
     setLoading(true);
 
-    const { data, error: supabaseError } = await supabase
+    const { error: supabaseError } = await supabase
       .from("waitlist")
       .insert([{ name: formdata.name, email: formdata.email }]);
 
