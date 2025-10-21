@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://flowa-sigma.vercel.app/sitemap.xml
